@@ -44,6 +44,26 @@ def nextRC(r, c):
         else:
             return -1, -1
 
+def counter(arr, num):
+    count = 0
+    for i in arr:
+        if i == num:
+            count += 1
+    if count > 1:
+        return False
+    else:
+        return True
+
+def checkInitialBoard():
+    board = b.getBoard()
+    tags = b.getTags()
+    for r in range(len(board)):
+        for c in range(len(board[r])):
+            if tags[r][c] == 1:
+                if not counter(b.getRow(r), board[r][c]) or not counter(b.getCol(c), board[r][c]) or not counter(b.getSquareGroup(r, c), board[r][c]):
+                    return False
+    return True
+
 def solve():
     stack = []
     stack.append((0,0,1))
@@ -77,5 +97,8 @@ def solve():
 def runSolver(t):
     global b
     b = t
-    solve()
-    print(b.toString())
+    if checkInitialBoard():
+        solve()
+        print(b.toString())
+    else:
+        print("Invalid Sudoku Puzzle")
