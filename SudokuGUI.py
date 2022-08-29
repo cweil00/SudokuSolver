@@ -87,7 +87,7 @@ class Sudoku(tk.Frame):
         for i in range(len(self.menus)):
             menu = self.menus[i]
             #if menu.get() != "X":
-            if menu.get() in possibleNumbers and menu.get() != "":
+            if menu.get() in possibleNumbers and menu.get() != "": #if invalid entry treats it as unknown sqaure
                 b.setNumberWithTag(menuMap[i][0], menuMap[i][1], int(menu.get()))
         runSolver(b)
 
