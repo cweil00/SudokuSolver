@@ -69,7 +69,7 @@ class Sudoku(tk.Frame):
         #for x in range(155, 400, 156):
         for x in range(149, 400, 150):
             separator = ttk.Separator(canvas, orient='vertical', style="Line.TSeparator")
-            separator.place(x=x, y=6, relheight=0.9)
+            separator.place(x=x, y=6, relheight=0.871)
     
     def createMenuMap(self):
         r = 0

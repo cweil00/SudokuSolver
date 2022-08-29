@@ -55,9 +55,20 @@ class Board:
 
     def toString(self):
         toReturn = ""
+        rowCount = 0
         for row in self.board:
+            colCount = 0
             for col in row:
-                toReturn += str(col) + ", "
-            toReturn += "\n"
+                toReturn += str(int(col))
+                if colCount == 2 or colCount == 5:
+                    toReturn += " | "
+                elif colCount != 8:
+                    toReturn += " "
+                colCount += 1
+            if rowCount != 8:
+                toReturn += "\n"
+            if rowCount == 2 or rowCount == 5:
+                toReturn += "------+-------+------\n"
+            rowCount += 1
         return toReturn
 

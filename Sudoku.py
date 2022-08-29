@@ -100,5 +100,7 @@ def runSolver(t):
     if checkInitialBoard():
         solve()
         print(b.toString())
+        #print("---------------------\n")
     else:
         print("Invalid Sudoku Puzzle")
+    print("_____________________\n")
